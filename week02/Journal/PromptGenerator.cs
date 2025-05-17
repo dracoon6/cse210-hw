@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-// Class to generate random prompts
 class PromptGenerator
 {
-    // Member variable to store the list of prompts
     private List<string> _prompts;
-    private Random _random; //added Random
+    private Random _random;
 
-    // Constructor for the PromptGenerator class
     public PromptGenerator()
     {
         _prompts = new List<string>
@@ -26,17 +23,16 @@ class PromptGenerator
             "What challenge did I face today?",
             "What act of kindness did I witness or perform today?"
         };
-        _random = new Random(); //initialize
+        _random = new Random();
     }
 
-    // Method to get a random prompt from the list
     public string GetRandomPrompt()
     {
         if (_prompts.Count == 0)
         {
             return "No prompts available.";
         }
-        int index = _random.Next(_prompts.Count); //use the random object
+        int index = _random.Next(_prompts.Count);
         return _prompts[index];
     }
 }
