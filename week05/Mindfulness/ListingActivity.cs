@@ -2,19 +2,11 @@
 using System.Collections.Generic;
 using System.Threading;
 
-/// <summary>
-/// Represents a Listing Activity, inheriting from the base Activity class.
-/// This activity prompts the user to list items in a specific positive area.
-/// </summary>
 public class ListingActivity : Activity
 {
-    private List<string> _prompts; // List of prompts for listing
-    private Random _random; // Random number generator for selecting prompts
+    private List<string> _prompts;
+    private Random _random;
 
-    /// <summary>
-    /// Constructor for the ListingActivity class.
-    /// Initializes the activity name, description, and populates the list of prompts.
-    /// </summary>
     public ListingActivity()
         : base("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
@@ -27,23 +19,15 @@ public class ListingActivity : Activity
             "Who are some of your personal heroes?"
         };
 
-        _random = new Random(); // Initialize the random number generator
+        _random = new Random();
     }
 
-    /// <summary>
-    /// Gets a random prompt from the list of prompts.
-    /// </summary>
-    /// <returns>A random listing prompt string.</returns>
     private string GetRandomPrompt()
     {
-        int index = _random.Next(0, _prompts.Count); // Get a random index
-        return _prompts[index]; // Return the prompt at that index
+        int index = _random.Next(0, _prompts.Count);
+        return _prompts[index];
     }
 
-    /// <summary>
-    /// Runs the listing activity.
-    /// Displays a prompt and then allows the user to list items for the specified duration.
-    /// </summary>
     public override void Run()
     {
         DisplayStartingMessage();
